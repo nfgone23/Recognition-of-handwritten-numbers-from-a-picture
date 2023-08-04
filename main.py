@@ -1,4 +1,4 @@
-# Project Handwriting recognition
+# Recognition of handwritten numbers by picture
 
 import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
