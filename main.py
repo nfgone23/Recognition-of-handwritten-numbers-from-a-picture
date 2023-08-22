@@ -4,7 +4,6 @@ import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-
 import cv2
 import numpy as np
 from tensorflow import keras
@@ -75,8 +74,3 @@ def img_to_str(model: any, image_file: str):
         if (dn > numbers[i][1]/4):
             s_out += ' '
     return s_out
-
-model = keras.models.load_model('mnist_model.keras')
-s_out = img_to_str(model, "image.png")
-print(s_out)
-
