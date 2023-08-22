@@ -28,9 +28,9 @@ SKIP, PHOTO = range(2)
 
 # functions
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    reply_keyboards = [['Recognize text on image', 'will back soon']]
+    reply_keyboards = [["Recognize text on image"]]
     await update.message.reply_text(
-        'Choose 1/2',
+        "Choose  <Recognize text on image>",
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboards, one_time_keyboard=True, input_field_placeholder= "Recognize"
         )
@@ -49,7 +49,7 @@ async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     model = keras.models.load_model('mnist_model.keras')
     s_out = img_to_str(model, "image.png")
     await update.message.reply_text(
-        str(s_out)
+        "Recognized text: " + str(s_out)
     )
     return ConversationHandler.END
 
@@ -68,7 +68,7 @@ def main():
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={
-            SKIP: [MessageHandler(filters.Regex("^(Recognize text on image|will back soon)$"), skip)],
+            SKIP: [MessageHandler(filters.Regex("^(Recognize text on image)$"), skip)],
             PHOTO: [MessageHandler(filters.PHOTO, photo)],
         },
         fallbacks=[CommandHandler("cancel",cancel)],
