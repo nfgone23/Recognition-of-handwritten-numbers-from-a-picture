@@ -74,3 +74,7 @@ def img_to_str(model: any, image_file: str):
         if (dn > numbers[i][1]/4):
             s_out += ' '
     return s_out
+
+# model = keras.models.load_model('mnist_model.keras')
+# s_out = img_to_str(model, "image.png")
+# print(s_out)
