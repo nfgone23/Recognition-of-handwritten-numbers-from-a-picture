@@ -59,8 +59,10 @@ def numbers_extract(image_file: str, out_size=28) -> list[any]:
 
     # Sort array in place by X-coordinate / Сортировка массива по координате X
     numbers.sort(key=lambda x: x[0], reverse=False)
+    
     # Examination / Проверка
     # cv2.imshow('1', numbers[1][2])
+    # cv2.imshow('2', numbers[2][2])
     # cv2.waitKey(0)
     return numbers
 
@@ -76,7 +78,6 @@ def img_to_str(model: any, image_file: str):
             s_out += ' '
     return s_out
 
-model = keras.models.load_model('mnist_model.keras')
-s_out = img_to_str(model, "image.png")
-print(s_out)
-
+# model = keras.models.load_model('mnist_model.keras')
+# s_out = img_to_str(model, "image.png")
+# print(s_out)
