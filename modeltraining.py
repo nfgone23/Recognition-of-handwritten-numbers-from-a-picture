@@ -25,7 +25,7 @@ model = keras.Sequential([
     Convolution2D(32, (3,3), padding="same", activation="relu", input_shape=(28, 28, 1)),
     MaxPooling2D((2,2), strides=2),
     Convolution2D(64, (3,3), padding="same", activation="relu"),
-    MaxPooling2D((2,2), strides=2),
+    MaxPooling2D((2,2), strides=2),         
     Flatten(),
     Dense(128, activation="relu"),
     Dense(10, activation="softmax")
