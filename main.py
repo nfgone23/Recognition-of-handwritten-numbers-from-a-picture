@@ -58,7 +58,6 @@ def numbers_extract(image_file: str, out_size=28) -> list[any]:
 
     # Sort array in place by X-coordinate / Сортировка массива по координате X
     numbers.sort(key=lambda x: x[0], reverse=False)
-    
     # Examination / Проверка
     # cv2.imshow('1', numbers[1][2])
     # cv2.imshow('2', numbers[2][2])
