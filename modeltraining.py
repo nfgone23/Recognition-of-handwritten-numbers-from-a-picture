@@ -6,7 +6,7 @@ from tensorflow.keras.datasets import mnist
 from tensorflow import keras
 from tensorflow.keras.layers import Dense, Flatten, Dropout, Convolution2D, MaxPooling2D
 
-# Load the MNIST dataset
+# Load the MNIST dataset / Загрузка набора данных MNIST
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 # Preprocess the data / Нормализация данных
@@ -33,7 +33,7 @@ model = keras.Sequential([
 
 # print(model.summary())
 
-# Compile the model
+# Compile the model / Компиляция модели
 model.compile(optimizer='adam',
               loss = 'categorical_crossentropy',
               metrics=['accuracy'])
@@ -43,5 +43,5 @@ his = model.fit(x_train, y_train, batch_size=32, epochs=5, validation_split=0.2)
 
 model.evaluate(x_test, y_test)
 
-# Save the model to a file
+# Save the model to a file / Сохранение модели
 model.save('mnist_model.keras')
