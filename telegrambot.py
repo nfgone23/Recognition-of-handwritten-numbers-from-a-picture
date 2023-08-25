@@ -16,7 +16,7 @@ from io import BytesIO
 import numpy as np
 
 # TOKEN
-TOKEN = '6602981268:AAFH_ch6KdamaYQzvqOtk2yua7yHX-5mUH4'
+TOKEN = 'InputYourTOKEN'
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -36,12 +36,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         )
     )
     return SKIP
+    
 async def skip(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text(
         "Send me a photo for Optical character recognition.",
         reply_markup=ReplyKeyboardRemove(),
     )
     return PHOTO
+    
 async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     photo_file = await update.message.photo[-1].get_file()
     await photo_file.download_to_drive("image.png")
@@ -53,7 +55,6 @@ async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     )
     return ConversationHandler.END
 
-
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     await update.message.reply_text(
@@ -61,7 +62,6 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     )
 
     return ConversationHandler.END
-
 
 def main():
     application = ApplicationBuilder().token(TOKEN).build()
@@ -75,6 +75,5 @@ def main():
     )
     application.add_handler(conv_handler)
     application.run_polling()
-
 if __name__ == "__main__":
     main()
