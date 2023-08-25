@@ -38,7 +38,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return SKIP
 async def skip(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text(
-        "Send me a photo for Optical character recognition",
+        "Send me a photo for Optical character recognition.",
         reply_markup=ReplyKeyboardRemove(),
     )
     return PHOTO
