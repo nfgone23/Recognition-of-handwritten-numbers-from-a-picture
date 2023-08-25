@@ -49,7 +49,7 @@ async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     model = keras.models.load_model('mnist_model.keras')
     s_out = img_to_str(model, "image.png")
     await update.message.reply_text(
-        str(s_out)
+        "Recognized text: " + str(s_out)
     )
     return ConversationHandler.END
 
